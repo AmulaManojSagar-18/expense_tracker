@@ -36,7 +36,7 @@ jobs:
         run: docker compose up -d --build
 
       - name: Check FastAPI is responding
-        run: curl --fail --retry 10 --retry-delay 3 http://127.0.0.1:8000/docs
+        run: curl --fail --retry 10 --retry-delay 3 --retry-all-errors http://127.0.0.1:8000/docs
 
       - name: Show service logs on failure
         if: failure()
